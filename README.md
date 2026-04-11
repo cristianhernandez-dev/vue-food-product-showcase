@@ -1,5 +1,10 @@
 # Vue Food Product Showcase
 
+![Vue](https://img.shields.io/badge/Vue-3-42b883)
+![Vite](https://img.shields.io/badge/Vite-Frontend-purple)
+![Vuetify](https://img.shields.io/badge/Vuetify-UI-blue)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+
 Aplicación SPA desarrollada con Vue 3 que funciona como un catálogo interactivo de productos gastronómicos. La app consume datos desde una API REST pública, permite filtrar por categorías, visualizar detalles individuales, gestionar favoritos y cambiar el idioma de la interfaz entre español e inglés.
 
 ---
