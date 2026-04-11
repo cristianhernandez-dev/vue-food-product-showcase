@@ -7,4 +7,5 @@ export default defineConfig({
     vue(),
     vuetify({ autoImport: true }),
   ],
+  base: "/vue-food-product-showcase/",
 });
