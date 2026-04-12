@@ -10,7 +10,7 @@
       {{ translatedCategory }}
     </v-card-subtitle>
 
-    <v-card-actions class="px-4 pb-4">
+  <v-card-actions class="px-4 pb-4 d-flex flex-wrap ga-2">
       <v-btn color="primary" variant="text" @click="goToDetail">
         {{ $t("buttons.detail") }}
       </v-btn>
