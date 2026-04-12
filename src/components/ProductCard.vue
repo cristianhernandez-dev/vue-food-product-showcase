@@ -32,8 +32,8 @@
       <v-btn
         size="small"
         :prepend-icon="isFav ? 'mdi-heart' : 'mdi-heart-outline'"
-        :color="isFav ? 'red' : 'grey-darken-1'"
-        variant="tonal"
+        :color="isFav ? 'red' : 'grey'"
+        variant="outlined"
         @click.stop="toggleFavorite"
       >
         {{ isFav ? $t("buttons.saved") : $t("buttons.favorite") }}
