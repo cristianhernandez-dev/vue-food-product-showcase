@@ -1,9 +1,11 @@
 <template>
-  <v-app-bar app density="comfortable" elevation="2">
+  <v-app-bar app density="comfortable" elevation="2" class="px-2">
     <v-container class="d-flex align-center justify-space-between flex-wrap ga-3">
-      <v-toolbar-title class="title-text">
-        Vue Food Product Showcase
-      </v-toolbar-title>
+
+<v-toolbar-title class="title-text">
+  <span class="d-none d-sm-inline">Vue Food Product Showcase</span>
+  <span class="d-sm-none">Vue Food</span>
+</v-toolbar-title>
 
       <div class="d-flex align-center flex-wrap ga-2 nav-actions">
         <router-link to="/" class="nav-link">

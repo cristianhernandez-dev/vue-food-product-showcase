@@ -1,10 +1,9 @@
 <template>
-  <v-container class="py-6 px-4">
+  <v-container class="py-8 px-4">
     <h1 class="text-h5 text-md-h4 font-weight-bold mb-4">
       {{ $t("catalog.title") }}
     </h1>
-
-    <CategoryFilter />
+<CategoryFilter class="mb-4" />
     <ProductList />
   </v-container>
 </template>
