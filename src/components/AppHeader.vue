@@ -3,7 +3,7 @@
     <v-container class="d-flex align-center justify-space-between">
       <v-toolbar-title class="title-text">
         <span class="d-none d-sm-inline">Vue Food Product Showcase</span>
-        <span class="d-sm-none">Vue Food</span>
+        <span class="d-sm-none">Vue Food Product Showcase</span>
       </v-toolbar-title>
 
       <!-- Desktop -->
@@ -44,43 +44,56 @@
             />
           </template>
 
-          <v-list min-width="200">
-            <v-list-item @click="goTo('/')">
-              <template #prepend>
-                <v-icon icon="mdi-home-outline" />
-              </template>
-              <v-list-item-title>{{ $t("nav.home") }}</v-list-item-title>
-            </v-list-item>
-
-            <v-list-item @click="goTo('/favorites')">
-              <template #prepend>
-                <v-icon icon="mdi-heart-outline" />
-              </template>
-              <v-list-item-title>{{ $t("nav.favorites") }}</v-list-item-title>
-            </v-list-item>
+          <v-card min-width="220" rounded="xl">
+            <v-card-item class="py-3">
+              <v-card-title class="text-subtitle-1 font-weight-bold">
+                Menú
+              </v-card-title>
+              <v-card-subtitle>
+                Vue Food
+              </v-card-subtitle>
+            </v-card-item>
 
             <v-divider />
 
-            <v-list-subheader>Idioma</v-list-subheader>
+            <v-list density="comfortable">
+              <v-list-item @click="goTo('/')">
+                <template #prepend>
+                  <v-icon icon="mdi-home-outline" />
+                </template>
+                <v-list-item-title>{{ $t("nav.home") }}</v-list-item-title>
+              </v-list-item>
 
-            <v-list-item @click="changeLanguage('es')">
-              <template #prepend>
-                <v-icon
-                  :icon="$i18n.locale === 'es' ? 'mdi-check-circle' : 'mdi-circle-outline'"
-                />
-              </template>
-              <v-list-item-title>Español</v-list-item-title>
-            </v-list-item>
+              <v-list-item @click="goTo('/favorites')">
+                <template #prepend>
+                  <v-icon icon="mdi-heart-outline" />
+                </template>
+                <v-list-item-title>{{ $t("nav.favorites") }}</v-list-item-title>
+              </v-list-item>
 
-            <v-list-item @click="changeLanguage('en')">
-              <template #prepend>
-                <v-icon
-                  :icon="$i18n.locale === 'en' ? 'mdi-check-circle' : 'mdi-circle-outline'"
-                />
-              </template>
-              <v-list-item-title>English</v-list-item-title>
-            </v-list-item>
-          </v-list>
+              <v-divider class="my-2" />
+
+              <v-list-subheader>Idioma</v-list-subheader>
+
+              <v-list-item @click="changeLanguage('es')">
+                <template #prepend>
+                  <v-icon
+                    :icon="$i18n.locale === 'es' ? 'mdi-check-circle' : 'mdi-circle-outline'"
+                  />
+                </template>
+                <v-list-item-title>Español</v-list-item-title>
+              </v-list-item>
+
+              <v-list-item @click="changeLanguage('en')">
+                <template #prepend>
+                  <v-icon
+                    :icon="$i18n.locale === 'en' ? 'mdi-check-circle' : 'mdi-circle-outline'"
+                  />
+                </template>
+                <v-list-item-title>English</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-card>
         </v-menu>
       </div>
     </v-container>
