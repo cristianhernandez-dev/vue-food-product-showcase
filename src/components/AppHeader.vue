@@ -1,21 +1,13 @@
 <template>
   <v-app-bar app density="comfortable" elevation="2" class="px-2">
-    
-    <v-container class="d-flex align-center justify-space-between flex-nowrap">
-      
-      <!-- Título responsive -->
+    <v-container class="d-flex align-center justify-space-between">
       <v-toolbar-title class="title-text">
-        <span class="d-none d-sm-inline">
-          Vue Food Product Showcase
-        </span>
-        <span class="d-sm-none">
-          Vue Food
-        </span>
+        <span class="d-none d-sm-inline">Vue Food Product Showcase</span>
+        <span class="d-sm-none">Vue Food</span>
       </v-toolbar-title>
 
-      <!-- Navegación -->
-      <div class="d-flex align-center ga-1 nav-actions">
-        
+      <!-- Desktop -->
+      <div class="d-none d-sm-flex align-center ga-2 nav-actions">
         <router-link to="/" class="nav-link">
           {{ $t("nav.home") }}
         </router-link>
@@ -27,15 +19,46 @@
         <span class="lang-label">ES</span>
 
         <v-btn
-          size="x-small"
+          size="small"
           :variant="$i18n.locale === 'en' ? 'flat' : 'outlined'"
           @click="changeLanguage('en')"
         >
           EN
         </v-btn>
-
       </div>
 
+      <!-- Mobile -->
+      <div class="d-flex d-sm-none">
+        <v-menu location="bottom end">
+          <template #activator="{ props }">
+            <v-btn
+              icon="mdi-menu"
+              variant="text"
+              v-bind="props"
+            />
+          </template>
+
+          <v-list min-width="180">
+            <v-list-item @click="goTo('/')">
+              <v-list-item-title>{{ $t("nav.home") }}</v-list-item-title>
+            </v-list-item>
+
+            <v-list-item @click="goTo('/favorites')">
+              <v-list-item-title>{{ $t("nav.favorites") }}</v-list-item-title>
+            </v-list-item>
+
+            <v-divider />
+
+            <v-list-item @click="changeLanguage('es')">
+              <v-list-item-title>Español</v-list-item-title>
+            </v-list-item>
+
+            <v-list-item @click="changeLanguage('en')">
+              <v-list-item-title>English</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
     </v-container>
   </v-app-bar>
 </template>
@@ -48,6 +71,9 @@ export default {
       this.$i18n.locale = lang;
       localStorage.setItem("lang", lang);
     },
+    goTo(path) {
+      this.$router.push(path);
+    },
   },
 };
 </script>
@@ -59,31 +85,16 @@ export default {
   white-space: nowrap;
 }
 
-/* Links */
 .nav-link {
   text-decoration: none;
   color: inherit;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 500;
   padding: 2px 6px;
 }
 
-/* Idioma */
 .lang-label {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   opacity: 0.7;
-}
-
-/* Ajustes móvil */
-@media (max-width: 600px) {
-  .title-text {
-    max-width: 120px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .nav-actions {
-    gap: 4px;
-  }
 }
 </style>
