@@ -1,13 +1,21 @@
 <template>
   <v-app-bar app density="comfortable" elevation="2" class="px-2">
-    <v-container class="d-flex align-center justify-space-between flex-wrap ga-3">
+    
+    <v-container class="d-flex align-center justify-space-between flex-nowrap">
+      
+      <!-- Título responsive -->
+      <v-toolbar-title class="title-text">
+        <span class="d-none d-sm-inline">
+          Vue Food Product Showcase
+        </span>
+        <span class="d-sm-none">
+          Vue Food
+        </span>
+      </v-toolbar-title>
 
-<v-toolbar-title class="title-text">
-  <span class="d-none d-sm-inline">Vue Food Product Showcase</span>
-  <span class="d-sm-none">Vue Food</span>
-</v-toolbar-title>
-
-      <div class="d-flex align-center flex-wrap ga-2 nav-actions">
+      <!-- Navegación -->
+      <div class="d-flex align-center ga-1 nav-actions">
+        
         <router-link to="/" class="nav-link">
           {{ $t("nav.home") }}
         </router-link>
@@ -19,13 +27,15 @@
         <span class="lang-label">ES</span>
 
         <v-btn
-          size="small"
+          size="x-small"
           :variant="$i18n.locale === 'en' ? 'flat' : 'outlined'"
           @click="changeLanguage('en')"
         >
           EN
         </v-btn>
+
       </div>
+
     </v-container>
   </v-app-bar>
 </template>
@@ -44,37 +54,36 @@ export default {
 
 <style scoped>
 .title-text {
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   font-weight: 700;
+  font-size: 1rem;
+  white-space: nowrap;
 }
 
-.nav-actions {
-  min-width: 0;
-}
-
+/* Links */
 .nav-link {
   text-decoration: none;
   color: inherit;
-  font-weight: 600;
-  padding: 4px 8px;
-}
-
-.lang-label {
+  font-size: 0.85rem;
   font-weight: 500;
+  padding: 2px 6px;
 }
 
+/* Idioma */
+.lang-label {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* Ajustes móvil */
 @media (max-width: 600px) {
   .title-text {
-    font-size: 1.1rem;
-    max-width: 180px;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .nav-actions {
-    width: 100%;
-    justify-content: flex-end;
+    gap: 4px;
   }
 }
 </style>
