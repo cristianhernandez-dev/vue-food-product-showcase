@@ -3,7 +3,7 @@
     <v-container class="d-flex align-center justify-space-between">
       <v-toolbar-title class="title-text">
         <span class="d-none d-sm-inline">Vue Food Product Showcase</span>
-        <span class="d-sm-none">Vue Food</span>
+        <span class="d-sm-none">Vue Food Product Showcase</span>
       </v-toolbar-title>
 
       <!-- Desktop -->
