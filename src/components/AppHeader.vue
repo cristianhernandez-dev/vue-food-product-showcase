@@ -3,7 +3,7 @@
     <v-container class="d-flex align-center justify-space-between">
       <v-toolbar-title class="title-text">
         <span class="d-none d-sm-inline">Vue Food Product Showcase</span>
-        <span class="d-sm-none">Vue Food Product Showcase</span>
+        <span class="d-sm-none">Vue Food</span>
       </v-toolbar-title>
 
       <!-- Desktop -->
@@ -16,7 +16,13 @@
           {{ $t("nav.favorites") }}
         </router-link>
 
-        <span class="lang-label">ES</span>
+        <v-btn
+          size="small"
+          :variant="$i18n.locale === 'es' ? 'flat' : 'outlined'"
+          @click="changeLanguage('es')"
+        >
+          ES
+        </v-btn>
 
         <v-btn
           size="small"
@@ -29,7 +35,7 @@
 
       <!-- Mobile -->
       <div class="d-flex d-sm-none">
-        <v-menu location="bottom end">
+        <v-menu v-model="menuOpen" location="bottom end">
           <template #activator="{ props }">
             <v-btn
               icon="mdi-menu"
@@ -38,22 +44,40 @@
             />
           </template>
 
-          <v-list min-width="180">
+          <v-list min-width="200">
             <v-list-item @click="goTo('/')">
+              <template #prepend>
+                <v-icon icon="mdi-home-outline" />
+              </template>
               <v-list-item-title>{{ $t("nav.home") }}</v-list-item-title>
             </v-list-item>
 
             <v-list-item @click="goTo('/favorites')">
+              <template #prepend>
+                <v-icon icon="mdi-heart-outline" />
+              </template>
               <v-list-item-title>{{ $t("nav.favorites") }}</v-list-item-title>
             </v-list-item>
 
             <v-divider />
 
+            <v-list-subheader>Idioma</v-list-subheader>
+
             <v-list-item @click="changeLanguage('es')">
+              <template #prepend>
+                <v-icon
+                  :icon="$i18n.locale === 'es' ? 'mdi-check-circle' : 'mdi-circle-outline'"
+                />
+              </template>
               <v-list-item-title>Español</v-list-item-title>
             </v-list-item>
 
             <v-list-item @click="changeLanguage('en')">
+              <template #prepend>
+                <v-icon
+                  :icon="$i18n.locale === 'en' ? 'mdi-check-circle' : 'mdi-circle-outline'"
+                />
+              </template>
               <v-list-item-title>English</v-list-item-title>
             </v-list-item>
           </v-list>
@@ -66,13 +90,23 @@
 <script>
 export default {
   name: "AppHeader",
+
+  data() {
+    return {
+      menuOpen: false,
+    };
+  },
+
   methods: {
     changeLanguage(lang) {
       this.$i18n.locale = lang;
       localStorage.setItem("lang", lang);
+      this.menuOpen = false;
     },
+
     goTo(path) {
       this.$router.push(path);
+      this.menuOpen = false;
     },
   },
 };
@@ -91,10 +125,5 @@ export default {
   font-size: 0.9rem;
   font-weight: 500;
   padding: 2px 6px;
-}
-
-.lang-label {
-  font-size: 0.8rem;
-  opacity: 0.7;
 }
 </style>
