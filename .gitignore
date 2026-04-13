@@ -25,6 +25,7 @@ dist-ssr
 .idea
 .DS_Store
 Thumbs.db
+dist/
 
 # Test output
 coverage
