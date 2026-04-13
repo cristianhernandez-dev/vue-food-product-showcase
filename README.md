@@ -45,17 +45,6 @@ La temática fue adaptada a productos gastronómicos utilizando TheMealDB como f
 
 ---
 
-## 🚀 Características principales
-
-- 📋 Catálogo dinámico de productos
-- 🔍 Filtrado por categorías
-- 📄 Vista de detalle por producto
-- ❤️ Sistema de favoritos
-- 🌐 Internacionalización (ES / EN)
-- 📱 Diseño responsive (mobile-first)
-- 🍔 Menú hamburguesa en dispositivos móviles
-- ⚡ Navegación fluida con Vue Router
-
 ## Objetivos cumplidos
 
 - Visualización de productos obtenidos desde una API REST.
