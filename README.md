@@ -1,11 +1,39 @@
-# Vue Food Product Showcase
+🍽️ Vue Food Product Showcase
 
 ![Vue](https://img.shields.io/badge/Vue-3-42b883)
 ![Vite](https://img.shields.io/badge/Vite-Frontend-purple)
 ![Vuetify](https://img.shields.io/badge/Vuetify-UI-blue)
+![Vue Router](https://img.shields.io/badge/Vue_Router-4-35495e)
+![Vuex](https://img.shields.io/badge/Vuex-4-42b883)
+![Vue I18n](https://img.shields.io/badge/Vue_I18n-Internationalization-blue)
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 
-Aplicación SPA desarrollada con Vue 3 que funciona como un catálogo interactivo de productos gastronómicos. La app consume datos desde una API REST pública, permite filtrar por categorías, visualizar detalles individuales, gestionar favoritos y cambiar el idioma de la interfaz entre español e inglés.
+
+
+Aplicación SPA desarrollada con Vue 3 que funciona como un catálogo interactivo de productos gastronómicos. La app consume datos desde una API REST pública, permite filtrar por categorías, visualizar detalles individuales, gestionar favoritos y cambiar entre idiomas español e inglés.
+
+---
+🌐 Demo en vivo
+
+👉 https://cristianhernandez-dev.github.io/vue-food-product-showcase/#/
+
+---
+
+## 📸 Vista previa
+
+### Vista principal
+![Vista principal](./public/images/home.png)
+
+### Vista detalle
+![Vista detalle](./public/images/detalle.png)
+
+### Cambio de idioma
+![Cambio de idioma español](./public/images/idioma_es.png)
+
+![Cambio de idioma inglés](./public/images/idioma_en.png)
+
+### Favoritos
+![Favoritos](./public/images/favoritos.png)
 
 ---
 
@@ -16,6 +44,17 @@ Este proyecto fue desarrollado como una propuesta de catálogo interactivo de pr
 La temática fue adaptada a productos gastronómicos utilizando TheMealDB como fuente de datos, lo que permitió implementar un catálogo dinámico, visual y escalable.
 
 ---
+
+## 🚀 Características principales
+
+- 📋 Catálogo dinámico de productos
+- 🔍 Filtrado por categorías
+- 📄 Vista de detalle por producto
+- ❤️ Sistema de favoritos
+- 🌐 Internacionalización (ES / EN)
+- 📱 Diseño responsive (mobile-first)
+- 🍔 Menú hamburguesa en dispositivos móviles
+- ⚡ Navegación fluida con Vue Router
 
 ## Objetivos cumplidos
 
@@ -37,7 +76,7 @@ La temática fue adaptada a productos gastronómicos utilizando TheMealDB como f
 - Vue Router  
 - Vuex 4  
 - Axios  
-- Vuetify  
+- Vuetify (UI Framework)  
 - Vue I18n  
 - Vite  
 
@@ -79,36 +118,26 @@ La descripción larga proveniente de la API se mantiene en su idioma original.
 
 ---
 
-## Estructura del proyecto
+## 🧱 Arquitectura del proyecto
+
+El proyecto está estructurado bajo una arquitectura modular basada en componentes:
 ```bash
 src/
-├── components/
-│   ├── AppFooter.vue
-│   ├── AppHeader.vue
-│   ├── CategoryFilter.vue
-│   ├── EmptyState.vue
-│   ├── ErrorState.vue
-│   ├── LoadingState.vue
-│   ├── ProductCard.vue
-│   └── ProductList.vue
-├── router/
-│   └── index.js
-├── services/
-│   └── api.js
-├── store/
-│   ├── index.js
-│   └── modules/
-│       ├── favorites.js
-│       ├── filters.js
-│       └── products.js
-├── views/
-│   ├── FavoritesView.vue
-│   ├── HomeView.vue
-│   └── ProductDetailView.vue
-├── App.vue
-├── i18n.js
-└── main.js
+├── components/       # Componentes reutilizables (UI)
+├── views/            # Vistas principales (Home, Detail, Favorites)
+├── router/           # Definición de rutas (SPA)
+├── store/            # Estado global con Vuex
+├── services/         # Consumo de API externa
+├── i18n.js           # Configuración de idiomas
+└── main.js           # Inicialización de la app
 ```
+## 🧠 Enfoque aplicado
+
+- **Separación clara de responsabilidades (UI / lógica / datos)**
+- **Componentes reutilizables y desacoplados**
+- **Estado centralizado con Vuex**
+- **Navegación controlada con Vue Router**
+
 
 ## 📦 Instalación y ejecución
 
@@ -137,16 +166,23 @@ npm run dev
 ```bash
 http://localhost:5173
 ```
-
-## ⚙️ Scripts disponibles
-
+## 🏗️ Build para producción
 ```bash
-npm run dev
 npm run build
-npm run preview
+```
+## 🚀 Deploy en GitHub Pages
+```bash
+npm run build
+git add -f dist
+git commit -m "Deploy"
+git subtree push --prefix dist origin gh-pages
 ```
 
-## 🧠 Decisiones técnicas
+
+## 🧠 Decisiones técnicas relevantes
+
+- **Se utilizó createWebHashHistory() para evitar problemas de rutas en GitHub Pages.**
+- **Se implementó diseño mobile-first con enfoque responsive.**
 
 ### Uso de Vuex
 
@@ -170,8 +206,23 @@ Se optó por esta API por su estabilidad, facilidad de integración y estructura
 
 ### Internacionalización
 
-Se incorporó vue-i18n para mejorar la experiencia de usuario y demostrar una mejora funcional y profesional en la interfaz.
+Se incorporó vue-i18n para soportar múltiples idiomas, mejorar la experiencia de usuario y demostrar una mejora funcional y profesional en la interfaz.
 
+---
+### 📚 Aprendizajes clave
+Durante el desarrollo se consolidaron conocimientos en:
+
+- Arquitectura SPA con Vue
+- Manejo de estado global
+- Internacionalización de aplicaciones
+- Resolución de errores en producción (deploy y rutas)
+- Diseño responsive moderno
+---
+### Estado del proyecto
+
+- ✅ Proyecto finalizado
+- 🚀 Desplegado en producción
+- 📱 Optimizado para dispositivos móviles
 ---
 ### 📌 Conclusión
 
@@ -179,4 +230,7 @@ Vue Food Product Showcase es una SPA que demuestra el uso de Vue en un escenario
 ---
 
 ## 👨‍💻 Autor
-Cristián Hernández
+- Cristián Hernández
+- Frontend Developer en formación 🚀
+- GitHub: https://github.com/cristianhernandez-dev
+---
